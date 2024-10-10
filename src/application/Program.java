@@ -70,7 +70,10 @@ public class Program {
         departmentDao.insert(dep);
 		System.out.println("Departamento " + dep.getName() + " adicionado com o id = "+ dep.getId());
 		
-		
+		System.out.println("=== TEST 4: Department update ===");
+        departmentDao.update(new Department(8,"Games"));
+        dep = departmentDao.findById(8);
+		System.out.println("Departamento " + dep.getId() + " Foi atualizado com o nome " + dep.getName());
 		
 		
 	}
