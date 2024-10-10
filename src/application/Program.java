@@ -65,6 +65,11 @@ public class Program {
 			System.out.println(department);
 		}
 		
+		System.out.println("=== TEST 3: Department insert ===");
+        dep = new Department(null,"GAMES");
+        departmentDao.insert(dep);
+		System.out.println("Departamento " + dep.getName() + " adicionado com o id = "+ dep.getId());
+		
 		
 		
 		
