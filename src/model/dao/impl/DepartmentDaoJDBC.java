@@ -58,7 +58,12 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			st.setString(1, obj.getName());
 			st.setInt(2, obj.getId());
 
-			st.executeUpdate();
+			Integer rowsAffected = st.executeUpdate();
+
+			if (rowsAffected == 0) {
+				throw new DbException("Error: No rows Effected!");
+			}
+			
 
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
@@ -70,7 +75,19 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+
+		try {
+			st = conn.prepareStatement("delete from department where id = ?");
+			st.setInt(1, id);
+
+			st.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DB.closeStatement(st);
+		}
 
 	}
 

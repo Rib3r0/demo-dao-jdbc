@@ -75,6 +75,11 @@ public class Program {
         dep = departmentDao.findById(8);
 		System.out.println("Departamento " + dep.getId() + " Foi atualizado com o nome " + dep.getName());
 		
+		System.out.println("=== TEST 5: Department delete ===");
+        departmentDao.deleteById(8);
+		System.out.println("Departamento 8 Foi deletado");
+		
+		
 		
 	}
 }
