@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -57,6 +58,12 @@ public class Program {
 		System.out.println("=== TEST 1: Department findById ===");
 		Department dep = departmentDao.findById(3);
 		System.out.println(dep);
+		
+		System.out.println("=== TEST 2: Department findAll ===");
+		List<Department> list = departmentDao.findAll();
+		for (Department department : list) {
+			System.out.println(department);
+		}
 		
 		
 		
